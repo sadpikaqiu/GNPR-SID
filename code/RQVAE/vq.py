@@ -93,22 +93,19 @@ class VectorQuantizer(nn.Module):
         d = torch.sum(latent ** 2, dim=1, keepdim=True) + \
             torch.sum(embeddings_weight ** 2, dim=1, keepdim=True).t() - \
             2 * torch.matmul(latent, embeddings_weight.t())
-        if not self.use_sk or self.sk_epsilon <= 0:
-            indices = torch.argmin(d, dim=-1)
-        else:
-            d = self.center_distance_for_constraint(d)
-            d = d.double()
-            Q = sinkhorn_algorithm(d, self.sk_epsilon, self.sk_iters)
-            # print(Q.sum(0)[:10])
-            if torch.isnan(Q).any() or torch.isinf(Q).any():
-                print(f"Sinkhorn Algorithm returns nan/inf values.")
-            indices = torch.argmax(Q, dim=-1)
-
-
+       
+        indices = torch.argmin(d, dim=-1)
         if self.use_linear == 1:
             x_q = F.embedding(indices, embeddings_weight).view(x.shape)
         else:
             x_q = self.embedding(indices).view(x.shape)
+
+        if self.use_sk and self.sk_epsilon > 0:
+            d_soft = self.center_distance_for_constraint(d)
+            d_soft = d_soft.double()
+            Q = sinkhorn_algorithm(d_soft, self.sk_epsilon, self.sk_iters)  # [B, N]
+        else:
+            Q = F.softmax(-d, dim=-1)  # [B, N]
 
         commitment_loss = F.mse_loss(x_q.detach(), x)
         codebook_loss = F.mse_loss(x_q, x.detach())
