@@ -28,13 +28,12 @@ You can reproduce the fine-tuning and evaluation workflows using our processed d
 ### **Cite Us**
 
 ```bibtex
-@inproceedings{Wang2025GNPRSID,
-  author    = {Dongsheng Wang and Yuxi Huang and Shen Gao and Yifan Wang and Chengrui Huang and Shuo Shang},
-  title     = {Generative Next POI Recommendation with Semantic ID},
-  booktitle = {Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining},
-  year      = {2025},
-  pages     = {2904--2914},
-  doi       = {10.1145/3711896.3736981}
+@inproceedings{wang2025generative,
+  title={Generative Next POI Recommendation with Semantic ID},
+  author={Wang, Dongsheng and Huang, Yuxi and Gao, Shen and Wang, Yifan and Huang, Chengrui and Shang, Shuo},
+  booktitle={Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining V. 2},
+  pages={2904--2914},
+  year={2025}
 }
 ```
 
