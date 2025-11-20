@@ -20,7 +20,7 @@ def evaluate_recommendation_with_ids():
     
     # 获取OpenAI客户端（需要配置Qwen API密钥）
     client = OpenAI(
-        api_key="sk-36ce00113a054e9d830c6945c3c28842",  # 替换为实际的API密钥
+        api_key="MY-API",  # 替换为实际的API密钥
         base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
     )
     

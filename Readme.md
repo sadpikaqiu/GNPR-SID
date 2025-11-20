@@ -1,4 +1,4 @@
-This repository contains the official implementation of the KDD 2025 paper *“Generative Next POI Recommendation with Semantic ID.”*
+This repository contains my implementation of the KDD 2025 paper *“Generative Next POI Recommendation with Semantic ID.”*
 
 The following components are already available:
 
@@ -22,18 +22,9 @@ The data preprocessing pipeline is available in the following Jupyter notebooks:
 
 ### **Model Fine-tuning**
 
-Model fine-tuning is conducted using the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) framework.
-You can reproduce the fine-tuning and evaluation workflows using our processed datasets, following the official instructions provided in the LLaMA-Factory repository.
+using QWEN to achieve LLM recommendation
 
-### **Cite Us**
 
-```bibtex
-@inproceedings{wang2025generative,
-  title={Generative Next POI Recommendation with Semantic ID},
-  author={Wang, Dongsheng and Huang, Yuxi and Gao, Shen and Wang, Yifan and Huang, Chengrui and Shang, Shuo},
-  booktitle={Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining V. 2},
-  pages={2904--2914},
-  year={2025}
-}
-```
+
+
 
