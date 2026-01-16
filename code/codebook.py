@@ -37,13 +37,13 @@ def parse_args(data_mode):
     parser.add_argument("--sk_iters", type=int, default=50, help="max sinkhorn iters")
     parser.add_argument("--use-liner", type=int, default=0, help="use-liner")
 
-    parser.add_argument("--device", type=str, default="cuda:7", help="gpu or cpu")
+    parser.add_argument("--device", type=str, default="cuda:0", help="gpu or cpu")
 
     parser.add_argument('--num_emb_list', type=int, nargs='+', default=[64,64,64], help='emb num of every vq')
     parser.add_argument('--e_dim', type=int, default=64, help='vq codebook embedding size')
     parser.add_argument('--quant_loss_weight', type=float, default=1.0, help='vq quantion loss weight')
     parser.add_argument("--beta", type=float, default=0.25, help="Beta for commitment loss")
-    parser.add_argument("--lamda", type=float, default=0, help="Lamda for diversity loss")
+    parser.add_argument("--lamda", type=float, default=0.25, help="Lamda for diversity loss")
     parser.add_argument('--layers', type=int, nargs='+', default=[512, 256, 128],
                         help='hidden sizes of every layer')
 
@@ -81,7 +81,7 @@ if __name__ == '__main__':
 
     best_loss_ckpt = "best_loss_model.pth"
     best_collision_ckpt = "best_collision_model.pth"
-    time_dir = "0"
+    time_dir = "0.25"
     current_dir = os.getcwd()
     best_loss_ckpt_file = args.ckpt_dir + f"/{data_mode}/{time_dir}/{best_loss_ckpt}"
     best_collision_ckpt_file = args.ckpt_dir + f"/{data_mode}/{time_dir}/{best_collision_ckpt}"
